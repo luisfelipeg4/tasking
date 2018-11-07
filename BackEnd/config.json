@@ -1,0 +1,11 @@
+{
+    "express": {
+        "port": 2000
+    },
+    "postgres": {
+        "db": "tasking",
+        "user": "taskink",
+        "password": "admin",
+        "host": "localhost"
+    }
+}
