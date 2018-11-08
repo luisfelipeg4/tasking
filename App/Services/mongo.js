@@ -30,7 +30,7 @@ class CrudOperations {
     try {
       let rows = await pool.query(findAllQuery);
       console.log(rows["rows"])
-      return rows["rows"].toArray()
+      return rows["rows"]
     } catch(error) {
       return error;
     }

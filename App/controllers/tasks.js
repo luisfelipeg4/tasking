@@ -17,13 +17,17 @@ const connectionData = {
 //var pool = new pg.Pool(connectionString)
 var pool = new pg.Pool(connectionData)
 
-routes.get('/', (req, response, next) => {
+routes.get('/', (req, res, next) => {
     
-    let consulta = (service.postgres().get("select * from tasks"))
-
-    response.send(consulta)
-
-
+    service.postgres().get("select * from tasks").then(function (respuesta) {
+        //lo que quiero hacer si recibo algo
+        console.log(respuesta);
+        res.send(respuesta);
+        //catch si no recibe nada
+    }).catch(function (error) {
+        console.log(error);
+        res.send(error);
+    });
   });
 
 module.exports = routes
