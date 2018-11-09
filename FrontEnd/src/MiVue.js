@@ -4,10 +4,10 @@
      * Instancia de VueJs
      */
     var app = new Vue({
-      el: '#hola',
+      el: '#tasking',
       data: {
         name: "",
-        pagina: "",
+        pagina: "listar",
       },
 			created: function(){
 				axios.get('http://localhost:3000/tasks').then(function (response) {

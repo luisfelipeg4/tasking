@@ -17,34 +17,33 @@
         crossorigin="anonymous"></script>
 
 </head>
-<header>
-    <nav class="navbar navbar-expand-lg  navbar-light" style="background-color: #ffffff; ">
-        </a>
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbardesplegable">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbardesplegable">
-                <ul class="navbar-nav nav-fill w-100">
-
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-primary btn-md btn-block" v-model="pagina" value="agregar">hola
-                            1 </button>
-                    </li>
-                    <li class="nav-item">
-
-                        <input type="button" class="btn btn-primary btn-md btn-block" v-model="pagina" value="listar">hola
-                        2 </button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
 
 <body>
 
-    <div id="hola" class="container">
+    <div id="tasking" class="container">
+        <nav class="navbar navbar-expand-lg  navbar-light" style="background-color: #ffffff; ">
+            </a>
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbardesplegable">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="navbardesplegable">
+                    <ul class="navbar-nav nav-fill w-100">
+
+                        <li class="nav-item">
+                            <label>
+                                <input type="radio" v-model="pagina" value="listar">
+                            </label>
+                        </li>
+                        <li class="nav-item">
+                            <label>
+                                <input type="radio" v-model="pagina" value="agregar">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
         <div class="row  justify-content-center align-items-center">
             <form class="col-md-6">
@@ -53,18 +52,19 @@
                     <input type="text" v-model="name" class="form-control">
                     {{$data||json}}
                 </div>
-                <label>
-                    <input type="radio" v-model="pagina" value="listar">
-                </label>
-                <label>
-                    <input type="radio" v-model="pagina" value="agregar">
-                </label>
-                <div v-if="pagina == 'agregar'">
-                    <h1>hola esta en agregar </h1>
-                </div>
-                
-                <div v-if="pagina == 'listar'">
-                        <h1>hola esta en listar</h1>
+                <div class="form-group">
+                    <div v-if="pagina == 'listar'">
+                        <h1>hola esta en listar </h1>
+                        <form>
+                            <button type="submit" class="btn btn-primary"></button>
+                        </form>
+                    </div>
+                    <div v-if="pagina == 'agregar'">
+                        <h1>hola esta en agregar </h1>
+                        <form>
+                            <button type="submit" class="btn btn-primary"></button>
+                        </form>
+                    </div>
                 </div>
             </form>
         </div>
@@ -72,7 +72,6 @@
 
 </body>
 <script src="./src/vue.js"></script>
-
 <script src="./src/MiVue.js"></script>
 
 </html>
