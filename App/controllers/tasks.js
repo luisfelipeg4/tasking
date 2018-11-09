@@ -1,9 +1,9 @@
 const express = require('express')
 const pg = require('pg')
 const routes = express.Router()
-const service = require('../services/mongo')
+const service = require('../Services/postgessql')
 routes.use(express.json())
- 
+
 /**
  * metodo para retornar todas las filas de tasks
  */
@@ -22,7 +22,7 @@ routes.get('/', (req, res, next) => {
 /**
  * Metodo para eliminar una task
  */
-  routes.delete('/:id',(req,res,next)=>{
+  routes.delete('/:id',(req,res,next)=>{  
     var id = req.params.id
     var  query = "delete from tasks where id =" + id; 
     console.log(query)
